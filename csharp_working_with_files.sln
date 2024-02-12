@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample1_read_text_file", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample2_write_to_text_file", "sample2_write_to_text_file\sample2_write_to_text_file.csproj", "{5D8364F7-ACE6-490B-9408-9EB011DCB1F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample3_append_to_text_file", "sample3_append_to_text_file\sample3_append_to_text_file.csproj", "{4C2C6F30-439F-4C55-A2A5-9B3B104454D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5D8364F7-ACE6-490B-9408-9EB011DCB1F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D8364F7-ACE6-490B-9408-9EB011DCB1F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D8364F7-ACE6-490B-9408-9EB011DCB1F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C2C6F30-439F-4C55-A2A5-9B3B104454D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C2C6F30-439F-4C55-A2A5-9B3B104454D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C2C6F30-439F-4C55-A2A5-9B3B104454D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C2C6F30-439F-4C55-A2A5-9B3B104454D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
