@@ -5,11 +5,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
-    <StartupObject>csharp_working_with_files.write_text_file_sample1.WriteToFileProgram</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="read_text_file_sample1\HelloWorld.txt">
+    <None Update="HelloWorld.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
