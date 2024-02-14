@@ -12,10 +12,15 @@ namespace prep1_to_do_list
     /// </summary>
     public class ToDoList
     {
-        public string filePath { get; }
-        public ToDoList(string filePath)
+        public List<Task> tasks;
+        public ToDoList()
         {
-            this.filePath = filePath;
-        }      
+            tasks = new List<Task>();
+        }
+
+        public void AddTask(Task task)
+        {
+            tasks.Add(task);
+        }
     }
 }

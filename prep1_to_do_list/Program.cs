@@ -11,10 +11,22 @@ namespace prep1_to_do_list
     /// </summary>
     internal class Program
     {
-        static ToDoList toDoList = new ToDoList("tasks.txt");
         static void Main(string[] args)
         {
-            //Provide user interface 
+            FileStorage fileStorage = new FileStorage("ToDoList.txt");
+
+            ToDoList toDoList = new ToDoList();
+
+            Console.WriteLine("Enter the title of the task:");
+            String taskTitle = Console.ReadLine();
+
+            Task t1 = new Task(taskTitle);
+
+            toDoList.AddTask(t1);
+
+            fileStorage.SaveTasksToFile(toDoList.tasks);
+            fileStorage.writer.Close();
+
         }
     }
 }

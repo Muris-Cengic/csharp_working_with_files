@@ -15,6 +15,7 @@ namespace prep1_to_do_list
     public class FileStorage
     {
         private string filePath;
+        public StreamWriter writer;
 
         /// <summary>
         /// Initializes a new instance of the TaskFileStorage class with the specified file path.
@@ -22,7 +23,7 @@ namespace prep1_to_do_list
         /// <param name="filePath">The path to the file where tasks will be saved and loaded.</param>
         public FileStorage(string filePath)
         {
-            this.filePath = filePath;
+            this.writer = new StreamWriter(filePath, true);
         }
 
         /// <summary>
@@ -32,7 +33,10 @@ namespace prep1_to_do_list
         /// <param name="tasks">The list of Task objects to be saved to the file.</param>
         public void SaveTasksToFile(List<Task> tasks)
         {
-            // Implementation omitted for summary
+            foreach (var task in tasks)
+            {
+                writer.WriteLine($"{task.Title}-{task.CreationDate}");
+            }
         }
 
         /// <summary>
