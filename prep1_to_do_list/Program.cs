@@ -13,19 +13,32 @@ namespace prep1_to_do_list
     {
         static void Main(string[] args)
         {
-            FileStorage fileStorage = new FileStorage("ToDoList.txt");
 
-            ToDoList toDoList = new ToDoList();
+            // Ask user for the input and save a task to new file
+            //FileStorage fileStorage = new FileStorage("ToDoList_v3.txt");
 
-            Console.WriteLine("Enter the title of the task:");
-            String taskTitle = Console.ReadLine();
+            //ToDoList toDoList = new ToDoList();
 
-            Task t1 = new Task(taskTitle);
+            //Console.WriteLine("Enter the title of the task:");
+            //String taskTitle = Console.ReadLine();
 
-            toDoList.AddTask(t1);
+            //Task t1 = new Task(taskTitle);
 
-            fileStorage.SaveTasksToFile(toDoList.tasks);
-            fileStorage.writer.Close();
+            //toDoList.AddTask(t1);
+
+            //fileStorage.SaveTasksToFile(toDoList.tasks);
+
+
+            //Load an existing file from the file system
+            FileStorage fileStorage = new FileStorage("ToDoList_v3.txt");
+
+            ToDoList loadedList = fileStorage.LoadToDoListFromFile();
+
+            foreach (Task task in loadedList.tasks)
+            {
+                Console.WriteLine($"{task.Title}-{task.CreationDate}");
+            }
+
 
         }
     }

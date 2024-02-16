@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,7 @@ namespace prep1_to_do_list
     public class FileStorage
     {
         private string filePath;
-        public StreamWriter writer;
+
 
         /// <summary>
         /// Initializes a new instance of the TaskFileStorage class with the specified file path.
@@ -23,7 +24,7 @@ namespace prep1_to_do_list
         /// <param name="filePath">The path to the file where tasks will be saved and loaded.</param>
         public FileStorage(string filePath)
         {
-            this.writer = new StreamWriter(filePath, true);
+            this.filePath = filePath;
         }
 
         /// <summary>
@@ -33,9 +34,11 @@ namespace prep1_to_do_list
         /// <param name="tasks">The list of Task objects to be saved to the file.</param>
         public void SaveTasksToFile(List<Task> tasks)
         {
+            using StreamWriter writer = new StreamWriter(filePath);
+
             foreach (var task in tasks)
             {
-                writer.WriteLine($"{task.Title}-{task.CreationDate}");
+                writer.WriteLine($"{task.Title} - {task.CreationDate}");
             }
         }
 
@@ -44,12 +47,40 @@ namespace prep1_to_do_list
         /// If the file does not exist, it returns an empty list, indicating no tasks to load.
         /// </summary>
         /// <returns>A list of Task objects loaded from the file.</returns>
-        public List<Task> LoadTasksFromFile()
+        public ToDoList LoadToDoListFromFile()
         {
-            List<Task> tasks = new List<Task>();
-            // Implementation omitted for summary
+            // line = "Task 1-2024/02/16"
 
-            return tasks;
+            // Task 1 : string
+            // 2024/02/16 : DateTime
+            // new Task("Task 1", "2024/02/16")
+
+            ToDoList list = new ToDoList();
+
+            using (StreamReader file = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = file.ReadLine()) != null)
+                {
+
+                    // list.AddTask();
+                    string[] parts = line.Split('-');
+
+                    string Title, date;
+                    Title = parts[0];
+                    date = parts[1];
+
+                    Task task = new Task(Title, date);
+
+                    list.AddTask(task);
+
+                    // Task task = new Task(parts[0], parts[1]);
+
+                }
+            }
+            // Implementation omitted for summary
+            //Hi
+            return list;
         }
     }
 }

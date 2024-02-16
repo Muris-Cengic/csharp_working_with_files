@@ -19,5 +19,11 @@ namespace prep1_to_do_list
             Title = title;
             CreationDate = DateTime.Now;
         }
+
+        public Task(string title, string date)
+        {
+            Title = title;
+            CreationDate = DateTime.Parse(date);
+        }
     }
 }
