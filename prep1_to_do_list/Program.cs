@@ -15,29 +15,63 @@ namespace prep1_to_do_list
         {
 
             // Ask user for the input and save a task to new file
+
             //FileStorage fileStorage = new FileStorage("ToDoList_v3.txt");
 
-            //ToDoList toDoList = new ToDoList();
+            ToDoList toDoList = new ToDoList();
 
-            //Console.WriteLine("Enter the title of the task:");
-            //String taskTitle = Console.ReadLine();
+            // Console.WriteLine("Enter the title of the task:");
+            // String taskTitle = Console.ReadLine();
 
-            //Task t1 = new Task(taskTitle);
+            // Task t1 = new Task(taskTitle);
 
-            //toDoList.AddTask(t1);
+            // toDoList.AddTask(t1);
 
-            //fileStorage.SaveTasksToFile(toDoList.tasks);
+            // fileStorage.SaveTasksToFile(toDoList.tasks);
 
 
             //Load an existing file from the file system
             FileStorage fileStorage = new FileStorage("ToDoList_v3.txt");
 
-            ToDoList loadedList = fileStorage.LoadToDoListFromFile();
+            //ToDoList loadedList = fileStorage.LoadToDoListFromFile();
 
-            foreach (Task task in loadedList.tasks)
+            //foreach (Task task in loadedList.tasks)
+            //{
+            //    Console.WriteLine($"{task.Title}-{task.CreationDate}");
+            //}
+
+            int option;
+
+            do
             {
-                Console.WriteLine($"{task.Title}-{task.CreationDate}");
-            }
+                Console.WriteLine("Welcome to ToDoList. Choose the option:");
+                Console.WriteLine("1. Add task.");
+                Console.WriteLine("2. Show existing tasks.");
+                Console.WriteLine("9. Save chages.");
+                Console.WriteLine("To exit choose 0.");
+                Console.Write("Enter your option: ");
+                string optionAsString = Console.ReadLine();
+                option = int.Parse(optionAsString);
+
+                switch (option)
+                {
+                    case 1:
+                        {
+                            Console.Write("Enter the task title: ");
+                            string title = Console.ReadLine();
+
+                            Task newTask = new Task(title);
+
+                            toDoList.AddTask(newTask);
+                        }; break;
+                    case 9:
+                        {
+                            fileStorage.SaveTasksToFile(toDoList.tasks);
+                        }
+                        break;
+                }
+
+            } while (option != 0);
 
 
         }
