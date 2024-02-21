@@ -69,6 +69,10 @@ namespace prep1_to_do_list
                             fileStorage.SaveTasksToFile(toDoList.tasks);
                         }
                         break;
+                    case 2:
+                        {
+                            toDoList.DisplayTasks();
+                        } break;
                 }
 
             } while (option != 0);

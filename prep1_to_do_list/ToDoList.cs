@@ -23,5 +23,29 @@ namespace prep1_to_do_list
         {
             tasks.Add(task);
         }
+
+        public void DisplayTasks()
+        {
+
+            if (tasks.Count == 0)
+            {
+                Console.WriteLine(" List is empty. ");
+                return;
+            }
+
+
+            Console.WriteLine("The existing tasks are:");
+
+            foreach (Task task in tasks)
+            {
+                //Console.WriteLine("The task " + view.Title + "-" + view.CreationDate);
+                Console.WriteLine("The task: " + task);
+
+               
+
+                
+                
+            }
+        }
     }
 }

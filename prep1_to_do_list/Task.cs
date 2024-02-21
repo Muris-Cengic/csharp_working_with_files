@@ -25,5 +25,11 @@ namespace prep1_to_do_list
             Title = title;
             CreationDate = DateTime.Parse(date);
         }
+
+
+        public override string ToString()
+        {
+            return Title + "-" + CreationDate.ToString();
+        }
     }
 }
