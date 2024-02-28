@@ -49,43 +49,38 @@ namespace prep1_to_do_list
         /// <returns>A list of Task objects loaded from the file.</returns>
         public ToDoList LoadToDoListFromFile()
         {
+            // line = "Task 1-2024/02/16"
+
+            // Task 1 : string
+            // 2024/02/16 : DateTime
+            // new Task("Task 1", "2024/02/16")
+
             ToDoList list = new ToDoList();
 
-            try
+            using (StreamReader file = new StreamReader(filePath))
             {
-                // line = "Task 1-2024/02/16"
-
-                // Task 1 : string
-                // 2024/02/16 : DateTime
-                // new Task("Task 1", "2024/02/16")
-                using (StreamReader file = new StreamReader(filePath))
+                string line;
+                while ((line = file.ReadLine()) != null)
                 {
-                    string line;
-                    while ((line = file.ReadLine()) != null)
-                    {
-                        // list.AddTask();
-                        string[] parts = line.Split('-');
 
-                        string Title, date;
-                        Title = parts[0];
-                        date = parts[1];
+                    // list.AddTask();
+                    string[] parts = line.Split('-');
 
-                        Task task = new Task(Title, date);
+                    string Title, date;
+                    Title = parts[0];
+                    date = parts[1];
 
-                        list.AddTask(task);
+                    Task task = new Task(Title, date);
 
-                        // Task task = new Task(parts[0], parts[1]);
+                    list.AddTask(task);
 
-                    }
+                    // Task task = new Task(parts[0], parts[1]);
+
                 }
-                // Implementation omitted for summary
-                //Hi
-                return list;
             }
-            catch (Exception e)
-            {
-                return list;
-            }
+            // Implementation omitted for summary
+            //Hi
+            return list;
         }
     }
 }

@@ -9,16 +9,16 @@ namespace prep1_to_do_list
     /// the ToDoList and FileStorage classes to manage tasks and their persistence, providing a simple
     /// console-based interface for to-do list management.
     /// </summary>
-
     internal class Program
     {
         static void Main(string[] args)
         {
+
             // Ask user for the input and save a task to new file
 
             //FileStorage fileStorage = new FileStorage("ToDoList_v3.txt");
 
-             //ToDoList toDoList = new ToDoList();
+            ToDoList toDoList = new ToDoList();
 
             // Console.WriteLine("Enter the title of the task:");
             // String taskTitle = Console.ReadLine();
@@ -33,7 +33,7 @@ namespace prep1_to_do_list
             //Load an existing file from the file system
             FileStorage fileStorage = new FileStorage("ToDoList_v3.txt");
 
-            ToDoList toDoList = fileStorage.LoadToDoListFromFile();
+            //ToDoList loadedList = fileStorage.LoadToDoListFromFile();
 
             //foreach (Task task in loadedList.tasks)
             //{
@@ -64,17 +64,15 @@ namespace prep1_to_do_list
 
                             toDoList.AddTask(newTask);
                         }; break;
-                    case 2:
-                        {
-                            toDoList.DisplayTasks();
-                        }
-                        break;
                     case 9:
                         {
                             fileStorage.SaveTasksToFile(toDoList.tasks);
                         }
                         break;
-                    
+                    case 2:
+                        {
+                            toDoList.DisplayTasks();
+                        } break;
                 }
 
             } while (option != 0);
