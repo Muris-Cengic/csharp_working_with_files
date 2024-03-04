@@ -18,7 +18,9 @@ namespace prep1_to_do_list
 
             //FileStorage fileStorage = new FileStorage("ToDoList_v3.txt");
 
-            ToDoList toDoList = new ToDoList();
+            FileStorage fileStorage = new FileStorage("ToDoList_v3.txt");
+
+            ToDoList toDoList = fileStorage.LoadToDoListFromFile();
 
             // Console.WriteLine("Enter the title of the task:");
             // String taskTitle = Console.ReadLine();
@@ -31,7 +33,6 @@ namespace prep1_to_do_list
 
 
             //Load an existing file from the file system
-            FileStorage fileStorage = new FileStorage("ToDoList_v3.txt");
 
             //ToDoList loadedList = fileStorage.LoadToDoListFromFile();
 
@@ -47,7 +48,7 @@ namespace prep1_to_do_list
                 Console.WriteLine("Welcome to ToDoList. Choose the option:");
                 Console.WriteLine("1. Add task.");
                 Console.WriteLine("2. Show existing tasks.");
-                Console.WriteLine("9. Save chages.");
+                Console.WriteLine("9. Save changes.");
                 Console.WriteLine("To exit choose 0.");
                 Console.Write("Enter your option: ");
                 string optionAsString = Console.ReadLine();
@@ -76,8 +77,6 @@ namespace prep1_to_do_list
                 }
 
             } while (option != 0);
-
-
         }
     }
 }
