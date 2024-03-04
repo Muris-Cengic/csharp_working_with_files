@@ -24,28 +24,28 @@ namespace prep1_to_do_list
             tasks.Add(task);
         }
 
+        public void RemoveTask(int taskNumber)
+        {
+            tasks.Remove(tasks[taskNumber - 1]);
+        }
+
         public void DisplayTasks()
         {
-
             if (tasks.Count == 0)
             {
                 Console.WriteLine(" List is empty. ");
                 return;
             }
 
-
+            Console.WriteLine("==========================+++++++++++========================");
             Console.WriteLine("The existing tasks are:");
 
-            foreach (Task task in tasks)
+            for (int i = 0; i < tasks.Count; i++)
             {
-                //Console.WriteLine("The task " + view.Title + "-" + view.CreationDate);
-                Console.WriteLine("The task: " + task);
-
-               
-
-                
-                
+                Console.WriteLine((i + 1) + ". " + tasks[i]);
             }
+
+            Console.WriteLine("======================END OF LIST============================");
         }
     }
 }

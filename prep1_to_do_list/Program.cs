@@ -48,6 +48,7 @@ namespace prep1_to_do_list
                 Console.WriteLine("Welcome to ToDoList. Choose the option:");
                 Console.WriteLine("1. Add task.");
                 Console.WriteLine("2. Show existing tasks.");
+                Console.WriteLine("3. To remove task");
                 Console.WriteLine("9. Save changes.");
                 Console.WriteLine("To exit choose 0.");
                 Console.Write("Enter your option: ");
@@ -73,6 +74,15 @@ namespace prep1_to_do_list
                     case 2:
                         {
                             toDoList.DisplayTasks();
+                        } break;
+
+                    case 3:
+                        {
+                            toDoList.DisplayTasks();
+                            Console.Write("Choose the number of task you want to remove: ");
+                            string taskToRemove = Console.ReadLine();
+                            int taskToRemoveInt = int.Parse(taskToRemove);
+                            toDoList.RemoveTask(taskToRemoveInt);
                         } break;
                 }
 

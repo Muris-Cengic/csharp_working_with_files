@@ -29,7 +29,7 @@ namespace prep1_to_do_list
 
         public override string ToString()
         {
-            return Title + "-" + CreationDate.ToString();
+            return Title + "-  " + CreationDate.ToString();
         }
     }
 }
