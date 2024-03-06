@@ -57,26 +57,34 @@ namespace prep1_to_do_list
 
             ToDoList list = new ToDoList();
 
-            using (StreamReader file = new StreamReader(filePath))
+            try
             {
-                string line;
-                while ((line = file.ReadLine()) != null)
+                using (StreamReader file = new StreamReader(filePath))
                 {
+                    string line;
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        // list.AddTask();
+                        string[] parts = line.Split('-');
 
-                    // list.AddTask();
-                    string[] parts = line.Split('-');
+                        string Title, date;
+                        Title = parts[0];
+                        date = parts[1];
 
-                    string Title, date;
-                    Title = parts[0];
-                    date = parts[1];
+                        Task task = new Task(Title, date);
 
-                    Task task = new Task(Title, date);
+                        list.AddTask(task);
 
-                    list.AddTask(task);
+                        // Task task = new Task(parts[0], parts[1]);
 
-                    // Task task = new Task(parts[0], parts[1]);
+                    }
 
                 }
+
+            }
+            catch
+            {
+                return list;
             }
             // Implementation omitted for summary
             //Hi
