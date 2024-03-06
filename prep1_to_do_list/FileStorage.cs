@@ -64,7 +64,6 @@ namespace prep1_to_do_list
                     string line;
                     while ((line = file.ReadLine()) != null)
                     {
-
                         // list.AddTask();
                         string[] parts = line.Split('-');
 
@@ -81,8 +80,9 @@ namespace prep1_to_do_list
                     }
 
                 }
-            
-            } catch 
+
+            }
+            catch
             {
                 return list;
             }
